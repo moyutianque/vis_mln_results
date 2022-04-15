@@ -7,6 +7,7 @@ from PIL import Image
 from utils.draw_toolbox import merge_and_display, GMAP_ROOT, draw_point, draw_path, draw_agent
 from utils.heatmap_tools import draw_heat_map
 from utils.map_tools import get_gmaps, simloc2maploc
+from utils.vis_tools import draw_image_caption
 import numpy as np
 
 import argparse
@@ -111,6 +112,8 @@ def show_episode(preds, episode_id, sim_results=None):
 
     pil_img = Image.alpha_composite(colorized_map, overlay_heat)
     pil_img = Image.alpha_composite(pil_img, path_img)
+
+    pil_img = draw_image_caption(pil_img, instruction, image_width=800)
 
     if is_success is not None:
         pil_img.save(osp.join(args.dump_dir, f"{is_success}-{ep_id}.png"))

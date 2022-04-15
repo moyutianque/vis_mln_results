@@ -6,12 +6,7 @@ import numpy as np
 from utils.constants import roomname2idx, roomidx2name, room_30color_rgba, d3_40_colors_rgb, semantic_sensor_40cat
 from PIL import Image, ImageDraw, ImageFont
 font = ImageFont.truetype("./arial.ttf", 8)
-import jsonlines
-from habitat.utils.visualizations import maps
-from habitat.utils.visualizations import utils
-import scipy
 import cv2
-from typing import Tuple, Sequence
 from .map_tools import simloc2maploc
 import math
 import quaternion
